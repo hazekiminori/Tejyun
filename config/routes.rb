@@ -8,4 +8,20 @@ Rails.application.routes.draw do
     registrations: "user/registrations"
   }
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  
+  namespace :admin do
+    resources :users
+    resources :categories
+    resources :procedures do
+      resources :additional_changes
+    end
+  end
+  
+  scope module: :user do
+    resources :users
+    resources :categories
+    resources :procedures do
+      resources :additional_changes
+    end
+  end
 end
