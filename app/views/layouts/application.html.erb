@@ -15,7 +15,7 @@
     <header class="shadow-sm">
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
-          <a class="navbar-brand p-3" href="/"><%= image_tag('logo.png') %></a>
+          <a class="navbar-brand p-3" href="/"></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -24,34 +24,33 @@
             <ul class="navbar-nav ml-auto">
             <% if user_signed_in? %>
             <li class="nav-item">
-              <%= link_to "ログアウト", , method: :delete, class: 'nav-link text-dark' %>
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
-              <%= link_to '投稿フォーム', , class: 'nav-link text-dark' %>
+              <%= link_to '投稿フォーム', new_procedure_path, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
-              <%= link_to 'マイページ', , class: 'nav-link text-dark' %>
+              <%= link_to 'マイページ', user_path, class: 'nav-link text-dark' %>
             </li>
             <% elsif admin_signed_in? %>
             <li class="nav-item">
-              <%= link_to "ログアウト", , method: :delete, class: 'nav-link text-dark' %>
+              <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
-              <%= link_to '投稿フォーム', , class: 'nav-link text-dark' %>
+              <%= link_to '利用者一覧', admin_users_path, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
-              <%= link_to 'カテゴリー一覧', , class: 'nav-link text-dark' %>
+              <%= link_to 'カテゴリー一覧', admin_categories_oath, class: 'nav-link text-dark' %>
             </li>
-            <% else %>
              <li class="nav-item">
-              <%= link_to '手順一覧', , class: 'nav-link text-dark' %>
+              <%= link_to '手順一覧', admin_procedures, class: 'nav-link text-dark' %>
             </li>
             <% else %>
             <li class="nav-item">
-              <%= link_to "新規登録", , class: 'nav-link text-dark' %>
+              <%= link_to "新規登録", new_user_registration_path, class: 'nav-link text-dark' %>
             </li>
             <li class="nav-item">
-              <%= link_to "ログイン",, class: 'nav-link text-dark' %>
+              <%= link_to "ログイン", new_user_session_path, class: 'nav-link text-dark' %>
             </li>
             <% end %>
             </ul>
@@ -67,18 +66,6 @@
         <div class="row no-gutters">
           <div class="col-md-4">
             <p>手順の変遷がわかりやすい看護手順サイト</p>
-            <%= image_tag('logo-white.png') %>
-          </div>
-          <div class="col-md-8">
-            <h6 class="text-white mt-2 mb-3">Link</h6>
-            <ul class="p-0 list-unstyled">
-              <li>
-                <a href="" title="About" class="text-white-50">会社概要</a>
-              </li>
-              <li>
-                <a href="" title="License informations" class="text-white-50">プライバシーポリシー</a>
-              </li>
-            </ul>
           </div>
         </div>
       </div>
